@@ -1,6 +1,10 @@
 <h1><%= @todo.title %></h1>
+<h2>Hello</h2>
+<ul>
+    <% @lists.each do |list|%>
+    <li><%= link_to list.title, list_path(list[:id]) %></li>
+    <% end %>
+</ul>
 
-<h2><%= @todo.time_of_day %></h2>
 
-<%= link_to "Here are my to do for the day: #{@list.title}", list_path(@list) %>
-<%= link_to "Back to list", lists_path %>
+<%= link_to "Back to list", todos_path %>

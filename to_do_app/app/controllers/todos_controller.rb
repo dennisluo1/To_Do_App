@@ -5,6 +5,7 @@ class TodosController < ApplicationController
     
     def show 
         @todo = Todo.find(params[:id])
+        @lists = @todo.lists
     end
     
 end
