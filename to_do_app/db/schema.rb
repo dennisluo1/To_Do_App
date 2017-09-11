@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911023400) do
+ActiveRecord::Schema.define(version: 20170911130436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "lists", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "todo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_id"], name: "index_lists_on_todo_id"
+  end
+
   create_table "todos", force: :cascade do |t|
+    t.string "title"
+    t.string "time_of_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
