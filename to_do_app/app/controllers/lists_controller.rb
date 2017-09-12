@@ -27,10 +27,9 @@ class ListsController < ApplicationController
     def edit 
         @list = List.find(params[:id])
     end
-
-    private
     
     def update
+        @list = List.find(params[:id])
         if @list.update(list_params)
             redirect_to @list
         else
@@ -39,8 +38,10 @@ class ListsController < ApplicationController
     end
     
     def destroy
+        @list = List.find(params[:id])
+        puts @list
         if @list.destroy
-            redirect_to lists_path
+            redirect_to todos_path
         else
             redirect_back fallback_location: @list
         end

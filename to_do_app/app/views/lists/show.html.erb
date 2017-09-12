@@ -2,7 +2,7 @@
     <h1><%= @list.title%></h1>
     <h2><%= @list.description %></h2>
     <div class="edit-button">
-        <%= link_to("edit", edit_list_path(@list), :class => "pop-button") %>
-        <%= button_to("delete", @list, method: :delete, :class=>"pop-button") %>
+        <%= link_to("edit", edit_list_path(@list), :class => "open-button") %>
+        <%= link_to("delete", @list, method: :delete, :class=>"open-button") %>
     </div>
 </div>
